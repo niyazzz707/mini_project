@@ -1,4 +1,5 @@
 from matplotlib import pyplot as plt
+from matplotlib import animation
 import numpy as np
 import Adafruit_DHT
 
@@ -22,3 +23,6 @@ def animate(i):
     new_y=np.r_[old_y[1:], y]
     line.set_ydata(new_y)
     return line,
+
+anim=animation.FuncAnimation(fig, animate, init_func=init, frames=200, interval=20, blit=False)
+plt.show()
